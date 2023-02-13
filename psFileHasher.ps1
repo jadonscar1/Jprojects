@@ -16,7 +16,7 @@ Function Calculate-File-Hash($filepath) {
 }
 
 Function Erase-Duplicate-Basline() {
-    $baselineExists = Test-PAth -PAth .\baseline.txt
+    $baselineExists = Test-Path -Path .\baseline.txt
 
     if ($baselineExists) {
         # Delete duplicate baseline

@@ -1,6 +1,6 @@
 ﻿
 Write-Host ""
-Write-Host "This program"
+Write-Host " This program monitors files that have their paths  in a text file called baseline"
 Write-Host "A) Collect new Baseline?"
 Write-Host "B) Begin monitoring files with saved Baseline?"
 Write-Host ""
@@ -96,7 +96,7 @@ elseif ($response -eq "B".ToUpper()) {
         foreach ($key in $fileHashTable.Keys) {
             $baselineFileStillExists = Test-Path -Path $key
             if (-Not $baselineFileStillExists) {
-                # One of the baseline files must have been deleted, notify the user
+                # baseline file deleted, notify user
                 Write-Host "$($key) has been deleted!" -ForegroundColor DarkRed -BackgroundColor Gray
             }
         }

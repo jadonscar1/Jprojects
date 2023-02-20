@@ -47,7 +47,7 @@ elseif ($response -eq "B".ToUpper()) {
 
     $fileHashTable = @{}
 
-    # Load file|hash from baseline.txt and store in dictionary 19:53
+    # Load file|hash from baseline.txt and store in dictionary 
     $filePathesAndHashes = Get-Content -Path .\baseline.txt
     
     foreach ($f in $filePathesAndHashes) {
@@ -66,17 +66,17 @@ elseif ($response -eq "B".ToUpper()) {
 
         foreach ($f in $files) {
             $hash = Calculate-File-Hash $f.FullName
-            # "$($hash.Path)|$($hash.Hash)" | Out-File -FilePath .\baseline.txt -Append
+            
 
-            #Notify if new file is created
+            # Notify if new file is created
             if ($fileHashTable[$hash.Path] -eq $null) {
-                #Detected creation of new file
+                # Detected creation of new file
                 Write-Host "$($hash.Path) was created" -ForegroundColor Green
       
             }
             else {
       
-                #Notify if file has been changed
+                # Notify if file has been changed
                 if ($fileHashTable[$hash.Path] -eq $hash.Hash) {
                     # File has not changed
       
